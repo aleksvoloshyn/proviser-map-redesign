@@ -1,0 +1,84 @@
+.people-block {
+  display: flex;
+  position: absolute;
+  width: 114px;
+}
+
+.people-block__nAm {
+  top: 196px;
+  left: 188px;
+}
+.people-block__de {
+  top: 185px;
+  left: 576px;
+}
+.people-block__asia {
+  top: 228px;
+  left: 858px;
+}
+.people-block__sAm {
+  top: 409px;
+  left: 322px;
+}
+.people-block__au {
+  top: 464px;
+  left: 968px;
+}
+
+.people-block .people {
+  width: 17px;
+}
+.people-block .people:hover {
+  cursor: pointer;
+}
+
+.people-block .people-laptop-active,
+.people-laptop {
+  position: absolute;
+}
+
+.people-block .people-phone,
+.people-block .people-phone-active {
+  position: absolute;
+  left: 38px;
+  top: -4px;
+  transform: scale(1.2);
+}
+.people-block .people-display,
+.people-block .people-display-active {
+  position: absolute;
+  left: 78px;
+  top: -8px;
+  transform: scale(1.4);
+}
+
+.people-block .people-laptop-active,
+.people-block .people-phone-active,
+.people-block .people-display-active {
+  width: 20px;
+}
+
+.active {
+  &:hover {
+    cursor: pointer;
+  }
+
+  opacity: 1;
+  animation: ani 1s linear;
+}
+
+@keyframes ani {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// .people-laptop:hover {
+//   content: url('/images/People_active.png');
+// }
