@@ -434,10 +434,10 @@ _clouds.showClouds.addEventListener('click', function () {
 
 _clouds.cloud.forEach(function (el) {
   el.addEventListener('mouseover', function () {
-    (0, _clouds.onMouseOverHandler)(el, '/Cloud_active.png');
+    (0, _clouds.onMouseOverHandler)(el, 'proviser-map-redesign/Cloud_active.png');
   });
   el.addEventListener('mouseout', function () {
-    (0, _clouds.onMouseOutHandler)(el, '/Cloud_2.png');
+    (0, _clouds.onMouseOutHandler)(el, 'proviser-map-redesign/Cloud_2.png');
   });
 });
 },{"./test":"js/test.js","./regionClass":"js/regionClass.js","./peopleHandler":"js/peopleHandler.js","./clouds":"js/clouds.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -468,7 +468,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52464" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52153" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
