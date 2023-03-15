@@ -201,13 +201,11 @@ exports.peopleIco = peopleIco;
 var peopleIcoActive = document.querySelectorAll(' .active');
 exports.peopleIcoActive = peopleIcoActive;
 
-var hideUsers = function hideUsers(p) {
-  peopleIco.forEach(function (el) {
-    console.log(el);
+var hideUsers = function hideUsers(p, pActive) {
+  p.forEach(function (el) {
     el.classList.toggle('hide');
   });
-  peopleIcoActive.forEach(function (el) {
-    console.log(el);
+  pActive.forEach(function (el) {
     el.classList.toggle('hide');
   });
 };
@@ -487,7 +485,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49625" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61671" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
