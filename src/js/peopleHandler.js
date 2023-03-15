@@ -10,13 +10,11 @@ import {
 export const peopleIco = document.querySelectorAll('.people')
 export const peopleIcoActive = document.querySelectorAll(' .active')
 
-export const hideUsers = (p) => {
-  peopleIco.forEach((el) => {
-    console.log(el)
+export const hideUsers = (p, pActive) => {
+  p.forEach((el) => {
     el.classList.toggle('hide')
   })
-  peopleIcoActive.forEach((el) => {
-    console.log(el)
+  pActive.forEach((el) => {
     el.classList.toggle('hide')
   })
 }
