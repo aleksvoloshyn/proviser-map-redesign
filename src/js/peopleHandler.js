@@ -6,9 +6,16 @@ import {
   australia,
   regions,
 } from './regionClass'
+import { checkAllRegionsChecked, cloud } from './clouds'
 
 export const peopleIco = document.querySelectorAll('.people')
 export const peopleIcoActive = document.querySelectorAll(' .active')
+
+export let europeDev = false
+export let northAmericaDev = false
+export let southAmericaDev = false
+export let asiaDev = false
+export let australiaDev = false
 
 export const hideUsers = (p, pActive) => {
   p.forEach((el) => {
@@ -71,22 +78,62 @@ const onUserClickButtonHandler = (reg, item) => {
     if (reg === 'europe') {
       europe.setDeviceQuantity(1)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
+      europeDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'asia') {
       asia.setDeviceQuantity(1)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
+      asiaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'northAmerica') {
       northAmerica.setDeviceQuantity(1)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
+      northAmericaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'southAmerica') {
       southAmerica.setDeviceQuantity(1)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
+      southAmericaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'australia') {
       australia.setDeviceQuantity(1)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
+      australiaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     item.parentNode.classList.add('hide')
   }
@@ -98,26 +145,66 @@ const onUserClickButtonHandler = (reg, item) => {
       europe.setDeviceQuantity(2)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
+      europeDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'asia') {
       asia.setDeviceQuantity(2)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
+      asiaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'northAmerica') {
       northAmerica.setDeviceQuantity(2)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
+      northAmericaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'southAmerica') {
       southAmerica.setDeviceQuantity(2)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
+      southAmericaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'australia') {
       australia.setDeviceQuantity(2)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
+      australiaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     item.parentNode.classList.add('hide')
   }
@@ -130,30 +217,70 @@ const onUserClickButtonHandler = (reg, item) => {
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
       item.parentNode.nextElementSibling.children[2].classList.remove('hide')
+      europeDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'asia') {
       asia.setDeviceQuantity(3)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
       item.parentNode.nextElementSibling.children[2].classList.remove('hide')
+      asiaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'northAmerica') {
       northAmerica.setDeviceQuantity(3)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
       item.parentNode.nextElementSibling.children[2].classList.remove('hide')
+      northAmericaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'southAmerica') {
       southAmerica.setDeviceQuantity(3)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
       item.parentNode.nextElementSibling.children[2].classList.remove('hide')
+      southAmericaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     if (reg === 'australia') {
       australia.setDeviceQuantity(3)
       item.parentNode.nextElementSibling.children[0].classList.remove('hide')
       item.parentNode.nextElementSibling.children[1].classList.remove('hide')
       item.parentNode.nextElementSibling.children[2].classList.remove('hide')
+      australiaDev = true
+      checkAllRegionsChecked(
+        europeDev,
+        asiaDev,
+        northAmericaDev,
+        southAmericaDev,
+        australiaDev
+      )
     }
     item.parentNode.classList.add('hide')
   }

@@ -23,7 +23,6 @@ import {
 peopleIconToggle()
 
 showClouds.addEventListener('click', () => {
-  console.log(showClouds.innerText)
   showClouds.innerText === 'show clouds'
     ? (showClouds.innerText = 'hide clouds')
     : (showClouds.innerText = 'show clouds')

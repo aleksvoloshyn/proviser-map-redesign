@@ -22,6 +22,14 @@ export const onMouseOutHandler = (el, src) => {
   el.setAttribute('src', src)
 }
 
+export const checkAllRegionsChecked = (reg1, reg2, reg3, reg4, reg5) => {
+  if (reg1 && reg2 && reg3 && reg4 && reg5) {
+    onShowCloudHandler(cloud)
+    console.log(showClouds)
+    showClouds.remove()
+  }
+}
+
 export const addServerHandler = (e) => {
   if (e.classList.contains('cloud-europe__image')) {
     europe = true
