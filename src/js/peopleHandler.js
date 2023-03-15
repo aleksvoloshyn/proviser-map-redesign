@@ -7,6 +7,20 @@ import {
   regions,
 } from './regionClass'
 
+export const peopleIco = document.querySelectorAll('.people')
+export const peopleIcoActive = document.querySelectorAll(' .active')
+
+export const hideUsers = (p) => {
+  peopleIco.forEach((el) => {
+    console.log(el)
+    el.classList.toggle('hide')
+  })
+  peopleIcoActive.forEach((el) => {
+    console.log(el)
+    el.classList.toggle('hide')
+  })
+}
+
 const mouseOnPeopleHandler = (item) => {
   if (item.classList.contains(`people-laptop`)) {
     item.classList.add('hide')
@@ -148,7 +162,7 @@ const onUserClickButtonHandler = (reg, item) => {
 }
 
 export const peopleIconToggle = () => {
-  document.querySelectorAll('.people').forEach((item) => {
+  peopleIco.forEach((item) => {
     item.addEventListener('mouseover', (e) => {
       mouseOnPeopleHandler(item, e.target.classList[1])
     })

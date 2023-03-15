@@ -4,7 +4,7 @@ export const showClouds = document.querySelector('.showClouds')
 
 export const onShowCloudHandler = (el) => {
   el.forEach((el) => {
-    el.classList.remove('hide')
+    el.classList.toggle('hide')
   })
 }
 

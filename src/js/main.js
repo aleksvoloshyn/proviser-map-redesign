@@ -2,7 +2,12 @@
 
 import { logger as greeting } from './test'
 import { regions } from './regionClass'
-import { peopleIconToggle } from './peopleHandler'
+import {
+  peopleIco,
+  peopleIcoActive,
+  hideUsers,
+  peopleIconToggle,
+} from './peopleHandler'
 import {
   onMouseOverHandler,
   onMouseOutHandler,
@@ -17,11 +22,12 @@ peopleIconToggle()
 
 showClouds.addEventListener('click', () => {
   onShowCloudHandler(cloud)
+  hideUsers(peopleIco, peopleIcoActive)
 })
 
 cloud.forEach((el) => {
   el.addEventListener('mouseover', () => {
-    onMouseOverHandler(el, '/images/Cloud_active.png')
+    onMouseOverHandler(el, './images/Cloud_active.png')
   })
   el.addEventListener('mouseout', () => {
     onMouseOutHandler(el, './images/Cloud_2.png')
