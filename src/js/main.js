@@ -22,14 +22,14 @@ import {
 
 peopleIconToggle()
 
-showClouds.addEventListener('click', () => {
-  showClouds.innerText === 'show clouds'
-    ? (showClouds.innerText = 'hide clouds')
-    : (showClouds.innerText = 'show clouds')
+// showClouds.addEventListener('click', () => {
+//   showClouds.innerText === 'show clouds'
+//     ? (showClouds.innerText = 'hide clouds')
+//     : (showClouds.innerText = 'show clouds')
 
-  onShowCloudHandler(cloud)
-  hideUsers(peopleIco, peopleIcoActive)
-})
+//   onShowCloudHandler(cloud)
+//   hideUsers(peopleIco, peopleIcoActive)
+// })
 
 cloud.forEach((el) => {
   el.addEventListener('mouseover', () => {
