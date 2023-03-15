@@ -563,13 +563,13 @@ var _clouds = require("./clouds");
 
 // import _ from 'lodash'
 // console.log(_.concat([10, 20, 30], [50]))
-(0, _peopleHandler.peopleIconToggle)();
-
-_clouds.showClouds.addEventListener('click', function () {
-  _clouds.showClouds.innerText === 'show clouds' ? _clouds.showClouds.innerText = 'hide clouds' : _clouds.showClouds.innerText = 'show clouds';
-  (0, _clouds.onShowCloudHandler)(_clouds.cloud);
-  (0, _peopleHandler.hideUsers)(_peopleHandler.peopleIco, _peopleHandler.peopleIcoActive);
-});
+(0, _peopleHandler.peopleIconToggle)(); // showClouds.addEventListener('click', () => {
+//   showClouds.innerText === 'show clouds'
+//     ? (showClouds.innerText = 'hide clouds')
+//     : (showClouds.innerText = 'show clouds')
+//   onShowCloudHandler(cloud)
+//   hideUsers(peopleIco, peopleIcoActive)
+// })
 
 _clouds.cloud.forEach(function (el) {
   el.addEventListener('mouseover', function () {
@@ -613,7 +613,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62518" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52188" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
