@@ -186,20 +186,142 @@ var northAmerica = new Region('northAmerica', 0, 0, 'us_w', 'us_e', 'people - bl
 exports.northAmerica = northAmerica;
 var regions = [europe, asia, australia, northAmerica, southAmerica];
 exports.regions = regions;
+},{}],"js/clouds.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.us_w = exports.us_e = exports.showClouds = exports.sg = exports.server = exports.onShowCloudHandler = exports.onMouseOverHandler = exports.onMouseOutHandler = exports.europe = exports.cloudImage = exports.cloud = exports.checkAllRegionsChecked = exports.addServerHandler = void 0;
+var cloud = document.querySelectorAll('.cloud__image');
+exports.cloud = cloud;
+var showClouds = document.querySelector('.showClouds');
+exports.showClouds = showClouds;
+var cloudImage = document.querySelectorAll('.cloud__image');
+exports.cloudImage = cloudImage;
+
+var onShowCloudHandler = function onShowCloudHandler(el) {
+  el.forEach(function (el) {
+    el.classList.toggle('hide');
+  });
+};
+
+exports.onShowCloudHandler = onShowCloudHandler;
+var server = false;
+exports.server = server;
+var europe = false;
+exports.europe = europe;
+var us_w = false;
+exports.us_w = us_w;
+var us_e = false;
+exports.us_e = us_e;
+var sg = false;
+exports.sg = sg;
+
+var onMouseOverHandler = function onMouseOverHandler(el, src) {
+  el.setAttribute('src', src);
+};
+
+exports.onMouseOverHandler = onMouseOverHandler;
+
+var onMouseOutHandler = function onMouseOutHandler(el, src) {
+  el.setAttribute('src', src);
+};
+
+exports.onMouseOutHandler = onMouseOutHandler;
+
+var checkAllRegionsChecked = function checkAllRegionsChecked(reg1, reg2, reg3, reg4, reg5) {
+  if (reg1 && reg2 && reg3 && reg4 && reg5) {
+    onShowCloudHandler(cloud);
+    console.log(showClouds);
+    showClouds.remove();
+  }
+};
+
+exports.checkAllRegionsChecked = checkAllRegionsChecked;
+
+var addServerHandler = function addServerHandler(e) {
+  if (e.classList.contains('cloud-europe__image')) {
+    exports.europe = europe = true;
+
+    if (server === false) {
+      exports.server = server = true;
+      e.parentNode.parentNode.insertAdjacentHTML('beforeend', '<img src = "./images/Servers_blue and red.png" alt = "server" class = "server server_blue server__europe"/>');
+      e.parentNode.remove();
+    } else {
+      e.parentNode.parentNode.insertAdjacentHTML('beforeend', '<img src = "./images/Servers_blue.png" alt = "server" class = "server server_blue server__europe"/>');
+      e.parentNode.remove();
+    }
+  }
+
+  if (e.classList.contains('cloud-us_w__image')) {
+    exports.us_w = us_w = true;
+
+    if (server === false) {
+      exports.server = server = true;
+      e.parentNode.parentNode.insertAdjacentHTML('beforeend', '<img src = "./images/Servers_blue and red.png" alt = "server" class = "server server_blue server__us_w"/>');
+      e.parentNode.remove();
+    } else {
+      e.parentNode.parentNode.insertAdjacentHTML('beforeend', '<img src = "./images/Servers_blue.png" alt = "server" class = "server server_blue server__us_w"/>');
+      e.parentNode.remove();
+    }
+  }
+
+  if (e.classList.contains('cloud-us_e__image')) {
+    exports.us_e = us_e = true;
+
+    if (server === false) {
+      exports.server = server = true;
+      e.parentNode.parentNode.insertAdjacentHTML('beforeend', '<img src = "./images/Servers_blue and red.png" alt = "server" class = "server server_blue server__us_e"/>');
+      e.parentNode.remove();
+    } else {
+      e.parentNode.parentNode.insertAdjacentHTML('beforeend', '<img src = "./images/Servers_blue.png" alt = "server" class = "server server_blue server__us_e"/>');
+      e.parentNode.remove();
+    }
+  }
+
+  if (e.classList.contains('cloud-sg__image')) {
+    exports.sg = sg = true;
+
+    if (server === false) {
+      exports.server = server = true;
+      e.parentNode.parentNode.insertAdjacentHTML('beforeend', '<img src = "./images/Servers_blue and red.png" alt = "server" class = "server server_blue server__sg"/>');
+      e.parentNode.remove();
+    } else {
+      e.parentNode.parentNode.insertAdjacentHTML('beforeend', '<img src = "./images/Servers_blue.png" alt = "server" class = "server server_blue server__sg"/>');
+      e.parentNode.remove();
+    }
+  } // **
+
+};
+
+exports.addServerHandler = addServerHandler;
 },{}],"js/peopleHandler.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.peopleIconToggle = exports.peopleIcoActive = exports.peopleIco = exports.hideUsers = void 0;
+exports.southAmericaDev = exports.peopleIconToggle = exports.peopleIcoActive = exports.peopleIco = exports.northAmericaDev = exports.hideUsers = exports.europeDev = exports.australiaDev = exports.asiaDev = void 0;
 
 var _regionClass = require("./regionClass");
+
+var _clouds = require("./clouds");
 
 var peopleIco = document.querySelectorAll('.people');
 exports.peopleIco = peopleIco;
 var peopleIcoActive = document.querySelectorAll(' .active');
 exports.peopleIcoActive = peopleIcoActive;
+var europeDev = false;
+exports.europeDev = europeDev;
+var northAmericaDev = false;
+exports.northAmericaDev = northAmericaDev;
+var southAmericaDev = false;
+exports.southAmericaDev = southAmericaDev;
+var asiaDev = false;
+exports.asiaDev = asiaDev;
+var australiaDev = false;
+exports.australiaDev = australiaDev;
 
 var hideUsers = function hideUsers(p, pActive) {
   p.forEach(function (el) {
@@ -265,30 +387,40 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
       _regionClass.europe.setDeviceQuantity(1);
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
+      exports.europeDev = europeDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'asia') {
       _regionClass.asia.setDeviceQuantity(1);
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
+      exports.asiaDev = asiaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'northAmerica') {
       _regionClass.northAmerica.setDeviceQuantity(1);
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
+      exports.northAmericaDev = northAmericaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'southAmerica') {
       _regionClass.southAmerica.setDeviceQuantity(1);
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
+      exports.southAmericaDev = southAmericaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'australia') {
       _regionClass.australia.setDeviceQuantity(1);
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
+      exports.australiaDev = australiaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     item.parentNode.classList.add('hide');
@@ -300,6 +432,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
+      exports.europeDev = europeDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'asia') {
@@ -307,6 +441,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
+      exports.asiaDev = asiaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'northAmerica') {
@@ -314,6 +450,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
+      exports.northAmericaDev = northAmericaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'southAmerica') {
@@ -321,6 +459,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
+      exports.southAmericaDev = southAmericaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'australia') {
@@ -328,6 +468,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
 
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
+      exports.australiaDev = australiaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     item.parentNode.classList.add('hide');
@@ -340,6 +482,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
       item.parentNode.nextElementSibling.children[2].classList.remove('hide');
+      exports.europeDev = europeDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'asia') {
@@ -348,6 +492,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
       item.parentNode.nextElementSibling.children[2].classList.remove('hide');
+      exports.asiaDev = asiaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'northAmerica') {
@@ -356,6 +502,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
       item.parentNode.nextElementSibling.children[2].classList.remove('hide');
+      exports.northAmericaDev = northAmericaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'southAmerica') {
@@ -364,6 +512,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
       item.parentNode.nextElementSibling.children[2].classList.remove('hide');
+      exports.southAmericaDev = southAmericaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     if (reg === 'australia') {
@@ -372,6 +522,8 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
       item.parentNode.nextElementSibling.children[0].classList.remove('hide');
       item.parentNode.nextElementSibling.children[1].classList.remove('hide');
       item.parentNode.nextElementSibling.children[2].classList.remove('hide');
+      exports.australiaDev = australiaDev = true;
+      (0, _clouds.checkAllRegionsChecked)(europeDev, asiaDev, northAmericaDev, southAmericaDev, australiaDev);
     }
 
     item.parentNode.classList.add('hide');
@@ -398,38 +550,7 @@ var peopleIconToggle = function peopleIconToggle() {
 };
 
 exports.peopleIconToggle = peopleIconToggle;
-},{"./regionClass":"js/regionClass.js"}],"js/clouds.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.showClouds = exports.onShowCloudHandler = exports.onMouseOverHandler = exports.onMouseOutHandler = exports.cloud = void 0;
-var cloud = document.querySelectorAll('.cloud__image');
-exports.cloud = cloud;
-var showClouds = document.querySelector('.showClouds');
-exports.showClouds = showClouds;
-
-var onShowCloudHandler = function onShowCloudHandler(el) {
-  el.forEach(function (el) {
-    el.classList.toggle('hide');
-  });
-};
-
-exports.onShowCloudHandler = onShowCloudHandler;
-
-var onMouseOverHandler = function onMouseOverHandler(el, src) {
-  el.setAttribute('src', src);
-};
-
-exports.onMouseOverHandler = onMouseOverHandler;
-
-var onMouseOutHandler = function onMouseOutHandler(el, src) {
-  el.setAttribute('src', src);
-};
-
-exports.onMouseOutHandler = onMouseOutHandler;
-},{}],"js/main.js":[function(require,module,exports) {
+},{"./regionClass":"js/regionClass.js","./clouds":"js/clouds.js"}],"js/main.js":[function(require,module,exports) {
 "use strict";
 
 var _test = require("./test");
@@ -445,6 +566,7 @@ var _clouds = require("./clouds");
 (0, _peopleHandler.peopleIconToggle)();
 
 _clouds.showClouds.addEventListener('click', function () {
+  _clouds.showClouds.innerText === 'show clouds' ? _clouds.showClouds.innerText = 'hide clouds' : _clouds.showClouds.innerText = 'show clouds';
   (0, _clouds.onShowCloudHandler)(_clouds.cloud);
   (0, _peopleHandler.hideUsers)(_peopleHandler.peopleIco, _peopleHandler.peopleIcoActive);
 });
@@ -455,6 +577,12 @@ _clouds.cloud.forEach(function (el) {
   });
   el.addEventListener('mouseout', function () {
     (0, _clouds.onMouseOutHandler)(el, './images/Cloud_2.png');
+  });
+});
+
+_clouds.cloudImage.forEach(function (el) {
+  el.addEventListener('click', function (e) {
+    (0, _clouds.addServerHandler)(e.target);
   });
 });
 },{"./test":"js/test.js","./regionClass":"js/regionClass.js","./peopleHandler":"js/peopleHandler.js","./clouds":"js/clouds.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -485,7 +613,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61671" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62518" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

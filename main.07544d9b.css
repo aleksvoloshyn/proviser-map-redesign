@@ -182,8 +182,18 @@ button {
 
 .device {
   position: absolute;
+  animation: appering 1s alternate;
+  opacity: 1;
 }
 
+@keyframes appering {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .devices__de {
   top: 205px;
   left: 112px;
@@ -292,27 +302,65 @@ button {
 
 @keyframes topdown {
   0% {
-    margin-top: 0;
+    transform: translateY(0);
   }
   50% {
-    margin-top: 4px;
+    transform: translateY(-2px);
   }
   100% {
-    margin-top: 0;
+    transform: translateY(0);
   }
 }
 @keyframes stop {
   0% {
-    margin-top: 0;
+    transform: translateY(0);
   }
   50% {
-    margin-top: 0px;
+    transform: translateY(0);
   }
   100% {
-    margin-top: 0;
+    transform: translateY(0);
     content: "";
   }
 }
+.server {
+  width: 80px;
+  position: absolute;
+  animation: appering 2s alternate;
+  opacity: 1;
+}
+
+@keyframes appering {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.server__europe {
+  top: 152px;
+  left: 546px;
+}
+
+.server__sg {
+  top: 332px;
+  right: 242px;
+}
+
+.server__us_e {
+  top: 158px;
+  left: 306px;
+}
+
+.server__us_w {
+  top: 192px;
+  left: 106px;
+}
+
 .page-header {
   font-size: 20px;
   color: red;
