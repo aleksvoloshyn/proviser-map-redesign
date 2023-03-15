@@ -192,9 +192,27 @@ exports.regions = regions;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.peopleIconToggle = void 0;
+exports.peopleIconToggle = exports.peopleIcoActive = exports.peopleIco = exports.hideUsers = void 0;
 
 var _regionClass = require("./regionClass");
+
+var peopleIco = document.querySelectorAll('.people');
+exports.peopleIco = peopleIco;
+var peopleIcoActive = document.querySelectorAll(' .active');
+exports.peopleIcoActive = peopleIcoActive;
+
+var hideUsers = function hideUsers(p) {
+  peopleIco.forEach(function (el) {
+    console.log(el);
+    el.classList.toggle('hide');
+  });
+  peopleIcoActive.forEach(function (el) {
+    console.log(el);
+    el.classList.toggle('hide');
+  });
+};
+
+exports.hideUsers = hideUsers;
 
 var mouseOnPeopleHandler = function mouseOnPeopleHandler(item) {
   if (item.classList.contains("people-laptop")) {
@@ -363,7 +381,7 @@ var onUserClickButtonHandler = function onUserClickButtonHandler(reg, item) {
 };
 
 var peopleIconToggle = function peopleIconToggle() {
-  document.querySelectorAll('.people').forEach(function (item) {
+  peopleIco.forEach(function (item) {
     item.addEventListener('mouseover', function (e) {
       mouseOnPeopleHandler(item, e.target.classList[1]);
     });
@@ -396,7 +414,7 @@ exports.showClouds = showClouds;
 
 var onShowCloudHandler = function onShowCloudHandler(el) {
   el.forEach(function (el) {
-    el.classList.remove('hide');
+    el.classList.toggle('hide');
   });
 };
 
@@ -430,6 +448,7 @@ var _clouds = require("./clouds");
 
 _clouds.showClouds.addEventListener('click', function () {
   (0, _clouds.onShowCloudHandler)(_clouds.cloud);
+  (0, _peopleHandler.hideUsers)(_peopleHandler.peopleIco, _peopleHandler.peopleIcoActive);
 });
 
 _clouds.cloud.forEach(function (el) {
@@ -468,7 +487,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63864" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49625" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
