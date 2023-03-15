@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "proviser-map-redesign",
   "main": "js/main.js",
-  "homepage": "https://aleksvoloshyn/proviser-map-redesign.git",
+  "homepage": "https://aleksvoloshyn.github.io/proviser-map-redesign",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html",
-    "build": "parcel build src/*.html --public-url /proviser-map-redesign/",
+    "build": "parcel build src/*.html",
     "predeploy": "npm run build -- --public-url /proviser-map-redesign/",
     "deploy": "gh-pages -d dist"
   },
@@ -18,7 +18,7 @@
   "author": "alexx.voloshyn@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aleksvoloshyn/proviser-map-redesign.git/issues"
+    "url": "https://github.com/aleksvoloshyn/proviser-map-redesign/issues"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
